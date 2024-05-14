@@ -1,0 +1,31 @@
+<?php
+require_once 'Product.php';
+require_once 'config.php';
+
+class ProductCatalog {
+    private $pdo;
+
+    public function __construct() {
+        $this->pdo = getDBConnection();
+    }
+
+    public function getProducts() {
+        $stmt = $this->pdo->query('SELECT * FROM products');
+        $products = [];
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $products[] = new Product($row['id'], $row['name'], $row['description'], $row['price'], $row['image']);
+        }
+        return $products;
+    }
+
+    public function addProduct(Product $product) {
+        $stmt = $this->pdo->prepare('INSERT INTO products (name, description, price, image) VALUES (?, ?, ?, ?)');
+        $stmt->execute([
+            $product->getName(),
+            $product->getDescription(),
+            $product->getPrice(),
+            $product->getImage()
+        ]);
+    }
+}
+?>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu</title>
+  <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+  <header>
+
+    <h2 class="logo"><span>P</span>iizaX</h2>
+    <nav class="navigation">
+       <a href="">Home</a>
+       <a href="info2">About</a>
+       <a href="#">Blog</a>
+       <a href="#">Contact</a>
+    </nav>
+    <a href="#" class="btn-talk">Let's talk</a>
+ </header>
+
+
+
+  <div class="menu-container">
+    <!-- Menu Item 1 -->
+    <div class="menu-item">
+      <img src="Pizzaa/hawain.jpg" alt="Pizza 1">
+      <h3>Hawwain pizza</h3>
+      <button class="buy-btn">Buy Now</button>
+      <div class="star-rating">&#9733; &#9733; &#9733; &#9733; &#9734;</div>
+    </div>
+
+    <!-- Repeat this structure for additional menu items -->
+    <!-- Menu Item 2 -->
+    <div class="menu-item">
+      <img src="Pizzaa/BBQ Chicken pizza.jpg" alt="Pizza 2">
+      <h3>BBQ Chicken $12</h3>
+
+      <button class="buy-btn">Buy Now</button>
+      <div class="star-rating">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="Pizzaa/Garlic pizza.jpg" alt="Pizza 2">
+      <h3>Garlic Pizza $11</h3>
+      <button class="buy-btn">Buy Now</button>
+      <div class="star-rating">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="Pizzaa/Chicken Paradise.png" alt="Pizza 2">
+      <h3>Chicken paradise $13</h3>
+      <button class="buy-btn">Buy Now</button>
+      <div class="star-rating">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="Pizzaa/Four cheese pizza.jpg" alt="Pizza 2">
+      <h3>Four cheese $12</h3>
+      <button class="buy-btn">Buy Now</button>
+      <div class="star-rating">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="Pizzaa/Margherita Fresca pizza.jpg" alt="Pizza 2">
+      <h3>Margherta Fresca Pizza $12</h3>
+      <button class="buy-btn">Buy Now</button>
+      <div class="star-rating">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="Pizzaa/Mediteranian Delight.jpg" alt="Pizza 2">
+      <h3>Mediteranian Delight $12</h3>
+      <button class="buy-btn">Buy Now</button>
+      <div class="star-rating">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="Pizzaa/Meatty pizza.jpg" alt="Pizza 2">
+      <h3>Meatty pizza $12</h3>
+      <button class="buy-btn">Buy Now</button>
+      <div class="star-rating">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="Pizzaa/Seafood sensation pizza.jpg" alt="Pizza 2">
+      <h3>Seafood sensation $15</h3>
+      <button class="buy-btn">Buy Now</button>
+      <div class="star-rating">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="Pizzaa/Veggi Extravaganza pizza.jpg" alt="Pizza 2">
+      <h3>Veggie Extravaganza $12</h3>
+      <button class="buy-btn">Buy Now</button>
+      <div class="star-rating">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="Pizzaa/Spicy pepperoni pizza.jpg" alt="Pizza 2">
+      <h3>Spicy pepperoni $12</h3>
+      <button class="buy-btn">Buy Now</button>
+      <div class="star-rating">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+    </div>
+
+    <!-- Add more menu items as needed -->
+  </div>
+
+  <!-- Order Form -->
+  <div class="order-form">
+    <h2>Order Form</h2>
+    <form>
+      <input type="text" class="form-input" placeholder="Your Name">
+      <input type="text" class="form-input" placeholder="Contact No">
+      <input type="text" class="form-input" placeholder="Address">
+      <select class="form-input">
+        <option value="pizza1">Pizza Margherita - $10</option>
+        <option value="pizza2">Pepperoni Pizza - $12</option>
+        <!-- Add options for other pizzas -->
+      </select>
+      <button type="submit" class="buy-btn">Place Order</button>
+    </form>
+  </div>
+
+  <script>
+    const buyBtns = document.querySelectorAll('.buy-btn');
+    const orderForm = document.querySelector('.order-form');
+
+    buyBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        orderForm.style.display = 'block';
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Pizza Company</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      body {
+    font-family: 'Arial', sans-serif;
+}
+
+header {
+    background: url('contact_header_background.jpg') no-repeat center center;
+    background-size: cover;
+    color: white;
+}
+
+h1, h2 {
+    font-family: 'Georgia', serif;
+}
+
+h2 {
+    margin-top: 30px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+}
+
+#map {
+    border: 3px solid #ddd;
+    padding: 10px;
+}
+
+    </style>
+</head>
+<body>
+    <header class="bg-dark text-white text-center py-5">
+        <h1>Contact Us</h1>
+        <p>We're here to help and answer any question you might have</p>
+    </header>
+
+    <section class="container my-5">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Get in Touch</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea class="form-control" id="message" rows="5" placeholder="Type your message here" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <h2>Contact Information</h2>
+                <ul class="list-unstyled">
+                    <li><strong>Address:</strong> 123 Pizza Street, Pizzatown, PT 45678</li>
+                    <li><strong>Phone:</strong> (123) 456-7890</li>
+                    <li><strong>Email:</strong> info@pizzacompany.com</li>
+                    <li><strong>Working Hours:</strong> Mon - Fri: 10 AM - 10 PM, Sat - Sun: 11 AM - 11 PM</li>
+                </ul>
+                <h2>Find Us</h2>
+                <div id="map" class="rounded shadow-sm" style="width: 100%; height: 300px;"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2024 Pizza Company. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function initMap() {
+            var location = { lat: -25.344, lng: 
+            131.036 };
+            var map = new google.maps.Map(document.getElementById('map'), {zoom: 15,center: location});
+            var marker = new google.maps.Marker({position: location, map: map});
+}
+</script>
+<script async defer
+ src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+</script>
+
+</body>
+</html>

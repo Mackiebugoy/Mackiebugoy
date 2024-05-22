@@ -1,0 +1,73 @@
+include <stdio.h>
+#include <string.h>
+
+#define MAX_NAME_LENGTH 100
+#define MAX_QUESTIONS 5
+
+typedef struct {
+    char question[256];
+    char answer[50];
+} Quiz;
+
+int askQuestion(Quiz q, char* name) {
+    char userAnswer[50];
+    printf("%s, %s\n", name, q.question);
+    printf("Your answer: ");
+    fgets(userAnswer, sizeof(userAnswer), stdin);
+    // Remove newline character from fgets
+    userAnswer[strcspn(userAnswer, "\n")] = '\0';
+
+    if (strcmp(userAnswer, q.answer) == 0) {
+        printf("%s, your answer is correct!\n\n", name);
+        return 1;
+    } else {
+        printf("Please try again.\n\n");
+        return 0;
+    }
+}
+
+int main() {
+    char name[MAX_NAME_LENGTH];
+    int age;
+    int score = 0;
+
+    // Get user's name
+    printf("Enter your name: ");
+    fgets(name, sizeof(name), stdin);
+    // Remove newline character from fgets
+    name[strcspn(name, "\n")] = '\0';
+
+    // Get user's age
+    printf("Enter your age: ");
+    scanf("%d", &age);
+    // Clear input buffer
+    while (getchar() != '\n');
+
+    // Define the questions and answers
+    Quiz quiz[MAX_QUESTIONS] = {
+        {"What is the capital of France?", "Paris"},
+        {"What is 2 + 2?", "4"},
+        {"What is the color of the sky on a clear day?", "Blue"},
+        {"What is the largest planet in our solar system?", "Jupiter"},
+        {"What is the chemical symbol for water?", "H2O"}
+    };
+
+    // Ask each question
+    for (int i = 0; i < MAX_QUESTIONS; i++) {
+        if (askQuestion(quiz[i], name)) {
+            score++;
+        }
+    }
+
+    // Output the overall score and personalized feedback
+    printf("\n%s, your overall score is %d/%d.\n", name, score, MAX_QUESTIONS);
+    if (score == 5) {
+        printf("Amazing, congratulations %s!\n", name);
+    } else if (score >= 3) {
+        printf("Study harder, %s!\n", name);
+    } else {
+        printf("Better luck next time, %s.\n", name);
+    }
+
+    return 0;
+}

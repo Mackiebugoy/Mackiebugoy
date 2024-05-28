@@ -1,0 +1,80 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char name[50], course[50];
+    int score = 0, answer;
+    
+    // Collect user details
+    printf("Enter your name: ");
+    fgets(name, sizeof(name), stdin);
+    name[strcspn(name, "\n")] = 0; // Remove trailing newline character
+
+    printf("Enter your course: ");
+    fgets(course, sizeof(course), stdin);
+    course[strcspn(course, "\n")] = 0; // Remove trailing newline character
+
+    // Questions
+    printf("\nWelcome %s  %s !\n", name, course);
+    printf("Let's start the quiz %s!\n\n", name);
+
+    // Question 1
+    printf("1. %s (%s), what is the capital of France?\n", name, course);
+    printf("1) Berlin\n2) Madrid\n3) Paris\n4) Rome\n");
+    printf("Enter your answer: ");
+    scanf("%d", &answer);
+    if (answer == 3) {
+        score++;
+    }
+
+    // Question 2
+    printf("2. %s (%s), which planet is known as the Red Planet?\n", name, course);
+    printf("1) Earth\n2) Mars\n3) Jupiter\n4) Venus\n");
+    printf("Enter your answer: ");
+    scanf("%d", &answer);
+    if (answer == 2) {
+        score++;
+    }
+
+    // Question 3
+    printf("3. %s (%s), what is the largest ocean on Earth?\n", name, course);
+    printf("1) Atlantic Ocean\n2) Indian Ocean\n3) Arctic Ocean\n4) Pacific Ocean\n");
+    printf("Enter your answer: ");
+    scanf("%d", &answer);
+    if (answer == 4) {
+        score++;
+    }
+
+    // Question 4
+    printf("4. %s (%s), who wrote 'To Kill a Mockingbird'?\n", name, course);
+    printf("1) Harper Lee\n2) Jane Austen\n3) Mark Twain\n4) J.K. Rowling\n");
+    printf("Enter your answer: ");
+    scanf("%d", &answer);
+    if (answer == 1) {
+        score++;
+    }
+
+    // Question 5
+    printf("5. %s (%s), what is the chemical symbol for water?\n", name, course);
+    printf("1) O2\n2) CO2\n3) H2O\n4) NaCl\n");
+    printf("Enter your answer: ");
+    scanf("%d", &answer);
+    if (answer == 3) {
+        score++;
+    }
+
+    // Results
+    printf("\nQuiz over!\n");
+    printf("%s (%s), your total score is: %d out of 5\n", name, course, score);
+
+    // Suggestions based on score
+    if (score == 5) {
+        printf("Excellent job, %s! You got all the answers correct.\n", name);
+    } else if (score >= 3) {
+        printf("Good job, %s! You got most of the answers correct.\n", name);
+    } else {
+        printf("You can do better, %s. Keep studying and try again!\n", name);
+    }
+
+    return 0;
+}.

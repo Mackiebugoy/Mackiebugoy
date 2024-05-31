@@ -1,0 +1,68 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAX_ENTRIES 100
+#define MAX_ENTRY_LENGTH 500
+
+typedef struct {
+    char date[20];
+    char entry[MAX_ENTRY_LENGTH];
+} DiaryEntry;
+
+void addEntry(DiaryEntry *entries, int *numEntries) {
+    if (*numEntries >= MAX_ENTRIES) {
+        puts("Diary is full.");
+        return;
+    }
+
+    printf("Enter date (dd/mm/yyyy): ");
+    scanf("%19s", entries[*numEntries].date);
+    printf("Enter your diary entry (max %d characters):\n", MAX_ENTRY_LENGTH);
+    getchar(); // consume newline
+    fgets(entries[*numEntries].entry, MAX_ENTRY_LENGTH, stdin);
+
+    (*numEntries)++;
+    puts("Entry added successfully.");
+}
+
+void viewEntries(DiaryEntry *entries, int numEntries) {
+    puts("Diary Entries\nDate\t\tEntry");
+    for (int i = 0; i < numEntries; i++) {
+        printf("%s\t%s", entries[i].date, entries[i].entry); // fgets includes newline
+    }
+}
+
+int main() {
+    DiaryEntry entries[MAX_ENTRIES];
+    int numEntries = 0, choice;
+    char name[50];
+
+    printf("Enter your name: ");
+    scanf("%49s", name);
+
+    printf("Welcome to the Diary App, %s!\n", name);
+
+    do {
+        printf("\nPlease choose %s\n1. Add Entry\n2. View Entries\n3. Exit\nEnter your choice: ", name);
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                addEntry(entries, &numEntries);
+                break;
+            case 2:
+                viewEntries(entries, numEntries);
+                break;
+            case 3:
+                puts("Exiting program.");
+                break;
+            default:
+                puts("Invalid choice. Please try again.");
+                break;
+        }
+    } while (choice != 3);
+
+    return 0;
+}
+    
